@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rúthéa Studio | Home</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="announcement-bar">
+        Let's make an impact together to stand with the people of Rúthéa
+    </div>
+
+    <header>
+        <div class="header-top">
+            <div style="display: flex; gap: 1.5rem; margin-left: auto;">
+                <a href="orders.html"><i class="fas fa-box"></i> My Orders</a>
+                <a href="login.html"><i class="fas fa-user"></i> Member Log in</a>
+            </div>
+        </div>
+        <nav class="navbar">
+            <a href="index.html" class="brand-container">
+                <img src="images/ruth logo.png" alt="Rúthéa Studio Logo" class="logo-img">
+                <div class="business-name">Rúthéa Studio</div>
+            </a>
+            <div class="menu-toggle"><i class="fas fa-bars"></i></div>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active-link">Home</a></li>
+                <li><a href="products.html">Product Page</a></li>
+                <li>
+                    <a href="cart.html">
+                        <i class="fas fa-shopping-cart"></i> Cart
+                        <span class="cart-count">0</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h1>Rúthéa Studio</h1>
+                <p class="tagline">Timeless Elegance for the Modern Woman</p>
+                <a href="products.html" class="cta-button">Explore Collection</a>
+            </div>
+        </section>
+
+        <section class="featured-preview">
+            <h2>Featured Boutique Items</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <img src="images/elegant silk gown.jpg" alt="Elegant Silk Gown" class="product-img" onclick="addToCart('p1', 'Elegant Silk Gown', 6800, 'images/elegant silk gown.jpg')" style="cursor: pointer;">
+                    <h3>Elegant Silk Gown</h3>
+                    <p class="price">₱6,800.00</p>
+                    <button onclick="addToCart('p1', 'Elegant Silk Gown', 6800, 'images/elegant silk gown.jpg')" class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product-card">
+                    <img src="images/floral summer dress.jpg" alt="Floral Summer Dress" class="product-img" onclick="addToCart('p2', 'Floral Summer Dress', 4800, 'images/floral summer dress.jpg')" style="cursor: pointer;">
+                    <h3>Floral Summer Dress</h3>
+                    <p class="price">₱4,800.00</p>
+                    <button onclick="addToCart('p2', 'Floral Summer Dress', 4800, 'images/floral summer dress.jpg')" class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product-card">
+                    <img src="images/leather handbag.webp" onclick="addToCart('p17', 'Leather Handbag', 5800, 'images/leather handbag.webp')" style="cursor: pointer;">
+                    <h3>Leather Handbag</h3>
+                    <p class="price">₱5,800.00</p>
+                    <button onclick="addToCart('p17', 'Leather Handbag', 5800, 'images/leather handbag.webp')" class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="new-arrivals">
+            <h2>New Arrivals</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <img src="images/velvet evening dress.webp" alt="Velvet Evening Dress" class="product-img" onclick="addToCart('p3', 'Velvet Evening Dress', 7500, 'images/velvet evening dress.webp')" style="cursor: pointer;">
+                    <h3>Velvet Evening Dress</h3>
+                    <p class="price">₱7,500.00</p>
+                    <button onclick="addToCart('p3', 'Velvet Evening Dress', 7500, 'images/velvet evening dress.webp')" class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product-card">
+                    <img src="images/classic silk blouse.webp" alt="Silk Blouse" class="product-img" onclick="addToCart('p6', 'Classic Silk Blouse', 2400, 'images/classic silk blouse.webp')" style="cursor: pointer;">
+                    <h3>Classic Silk Blouse</h3>
+                    <p class="price">₱2,400.00</p>
+                    <button onclick="addToCart('p6', 'Classic Silk Blouse', 2400, 'images/classic silk blouse.webp')" class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product-card">
+                    <img src="images/high waist jean.webp" alt="High-Waist Jeans" class="product-img" onclick="addToCart('p11', 'High-Waist Jeans', 2800, 'images/high waist jean.webp')" style="cursor: pointer;">
+                    <h3>High-Waist Jeans</h3>
+                    <p class="price">₱2,800.00</p>
+                    <button onclick="addToCart('p11', 'High-Waist Jeans', 2800, 'images/high waist jean.webp')" class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="our-story">
+            <div class="story-content">
+                <h2>Our Story</h2>
+                <p>Founded with a passion for timeless elegance, Rúthéa Studio is more than just a boutique. We believe that every woman deserves to feel confident and sophisticated in what she wears. Our collection is carefully curated to bring you the finest materials and exquisite designs that transcend trends.</p>
+                <p>From the heart of Rúthéa, we stand with our community, ensuring that every piece we offer tells a story of craftsmanship and dedication.</p>
+            </div>
+            <div class="story-image">
+                <img src="https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?w=800&auto=format&fit=crop&q=60" alt="Boutique Interior">
+            </div>
+        </section>
+
+        <section class="testimonials">
+            <h2>What Our Clients Say</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-item">
+                    <p>"The quality of the silk gown I purchased is beyond my expectations. Rúthéa Studio truly understands elegance."</p>
+                    <span>- Divine Asebto</span>
+                </div>
+                <div class="testimonial-item">
+                    <p>"Fast delivery and the packaging was beautiful. I love the personal touch in every order!"</p>
+                    <span>- Sofia Reyes</span>
+                </div>
+                <div class="testimonial-item">
+                    <p>"The best boutique in the Philippines. Their collection is always on trend yet timeless."</p>
+                    <span>- Isabella Garcia</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="why-choose-us">
+            <h2>Why Choose Rúthéa</h2>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <i class="fas fa-gem"></i>
+                    <h3>Premium Quality</h3>
+                    <p>We source only the highest quality fabrics and materials for our boutique collection.</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-shipping-fast"></i>
+                    <h3>Fast Delivery</h3>
+                    <p>Experience reliable and prompt shipping to your doorstep across the Philippines.</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-heart"></i>
+                    <h3>Personal Touch</h3>
+                    <p>Each order is packed with care, ensuring a personalized experience for every customer.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="newsletter">
+            <div class="newsletter-container">
+                <h2>Join the Rúthéa Circle</h2>
+                <p>Subscribe to receive updates on our latest collections and exclusive offers.</p>
+                <form class="newsletter-form" onsubmit="event.preventDefault(); showNotification('Thank you for subscribing!', 'success'); this.reset();">
+                    <input type="email" placeholder="Enter your email address" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-info">
+                <h3>Contact Us</h3>
+                <p><i class="fas fa-envelope"></i> <a href="mailto:ruthlapuz24@gmail.com">ruthlapuz24@gmail.com</a></p>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Rúthéa Studio. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="cart.js"></script>
+</body>
+</html>

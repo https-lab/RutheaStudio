@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rúthéa Studio | Cart</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .cart-container {
+            padding: 5rem 10%;
+            min-height: 60vh;
+        }
+        .cart-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 2rem;
+        }
+        .cart-table th, .cart-table td {
+            padding: 1.5rem;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+        .cart-table th {
+            color: var(--main-color);
+            font-size: 1.1rem;
+            font-family: 'Playfair Display', serif;
+        }
+        .cart-summary {
+            margin-top: 3rem;
+            background: #fdfaf9;
+            padding: 2.5rem;
+            border-radius: 15px;
+            max-width: 450px;
+            margin-left: auto;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1.2rem;
+            font-size: 1.1rem;
+        }
+        .summary-total {
+            font-weight: 700;
+            font-size: 1.5rem;
+            border-top: 1px solid #eee;
+            padding-top: 1.5rem;
+            color: var(--main-color);
+            font-family: 'Playfair Display', serif;
+        }
+        .checkout-btn {
+            display: block;
+            background-color: var(--main-color);
+            color: var(--font-color);
+            text-align: center;
+            padding: 1.2rem;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 8px;
+            margin-top: 2rem;
+            transition: var(--transition);
+            border: none;
+            width: 100%;
+            cursor: pointer;
+            font-size: 1.1rem;
+        }
+        .checkout-btn:hover {
+            background-color: var(--dark-accent);
+            transform: translateY(-3px);
+        }
+    </style>
+</head>
+<body>
+    <div class="announcement-bar">
+        Let's make an impact together to stand with the people of Rúthéa
+    </div>
+
+    <header>
+        <div class="header-top">
+            <div style="display: flex; gap: 1.5rem; margin-left: auto;">
+                <a href="orders.html"><i class="fas fa-box"></i> My Orders</a>
+                <a href="login.html"><i class="fas fa-user"></i> Member Log in</a>
+            </div>
+        </div>
+        <nav class="navbar">
+            <a href="index.html" class="brand-container">
+                <img src="images/ruth logo.png" alt="Rúthéa Studio Logo" class="logo-img">
+                <div class="business-name">Rúthéa Studio</div>
+            </a>
+            <div class="menu-toggle"><i class="fas fa-bars"></i></div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html">Product Page</a></li>
+                <li>
+                    <a href="cart.html" class="active-link">
+                        <i class="fas fa-shopping-cart"></i> Cart
+                        <span class="cart-count">0</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="cart-container">
+        <h2 style="font-size: 2.5rem; color: var(--main-color); margin-bottom: 2rem;">Your Shopping Bag</h2>
+        <table class="cart-table">
+            <thead>
+                <tr>
+                    <th>Product</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Dynamic Content from cart.js -->
+            </tbody>
+        </table>
+
+        <div class="cart-summary">
+            <div class="summary-row">
+                <span>Subtotal</span>
+                <span id="subtotal">₱0.00</span>
+            </div>
+            <div class="summary-row">
+                <span>Shipping</span>
+                <span>₱150.00</span>
+            </div>
+            <div class="summary-row summary-total">
+                <span>Total</span>
+                <span id="total">₱0.00</span>
+            </div>
+            <button onclick="checkout()" class="checkout-btn">Complete Purchase</button>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-info">
+                <h3>Contact Us</h3>
+                <p><i class="fas fa-envelope"></i> <a href="mailto:ruthlapuz24@gmail.com">ruthlapuz24@gmail.com</a></p>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Rúthéa Studio. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="cart.js"></script>
+</body>
+</html>

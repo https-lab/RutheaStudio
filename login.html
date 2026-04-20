@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Rúthéa Studio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="announcement-bar">
+        Let's make an impact together to stand with the people of Rúthéa
+    </div>
+
+    <header>
+        <div class="header-top">
+            <div style="display: flex; gap: 1.5rem; margin-left: auto;">
+                <a href="orders.html"><i class="fas fa-box"></i> My Orders</a>
+                <a href="login.html" class="active-link"><i class="fas fa-user"></i> Member Log in</a>
+            </div>
+        </div>
+        <nav class="navbar">
+            <a href="index.html" class="brand-container">
+                <img src="images/ruth logo.png" alt="Rúthéa Studio Logo" class="logo-img">
+                <div class="business-name">Rúthéa Studio</div>
+            </a>
+            <div class="menu-toggle"><i class="fas fa-bars"></i></div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html">Product Page</a></li>
+                <li>
+                    <a href="cart.html">
+                        <i class="fas fa-shopping-cart"></i> Cart
+                        <span class="cart-count">0</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="login-container">
+        <form class="login-form" id="loginForm">
+            <h2>Welcome Back</h2>
+            <p style="margin-bottom: 2rem; color: #666;">Please enter your details to sign in</p>
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" placeholder="Enter your email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="Enter your password" required>
+            </div>
+            <button type="submit" class="login-btn-full">Sign In</button>
+            <p style="margin-top: 1.5rem; font-size: 0.9rem;">
+                Don't have an account? <a href="#" style="color: var(--main-color); font-weight: bold;">Sign up</a>
+            </p>
+        </form>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-info">
+                <h3>Contact Us</h3>
+                <p><i class="fas fa-envelope"></i> <a href="mailto:ruthlapuz24@gmail.com">ruthlapuz24@gmail.com</a></p>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Rúthéa Studio. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="cart.js"></script>
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // In a real app, you'd validate credentials here
+            localStorage.setItem('ruthea_user_logged_in', 'true');
+            showNotification('Login successful! Welcome back.', 'success');
+            setTimeout(() => {
+                window.location.href = 'index.html';
+            }, 1500);
+        });
+    </script>
+</body>
+</html>

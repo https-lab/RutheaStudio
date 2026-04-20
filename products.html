@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rúthéa Studio | Products</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="announcement-bar">
+        Let's make an impact together to stand with the people of Rúthéa
+    </div>
+
+    <header>
+        <div class="header-top">
+            <div style="display: flex; gap: 1.5rem; margin-left: auto;">
+                <a href="orders.html"><i class="fas fa-box"></i> My Orders</a>
+                <a href="login.html"><i class="fas fa-user"></i> Member Log in</a>
+            </div>
+        </div>
+        <nav class="navbar">
+            <a href="index.html" class="brand-container">
+                <img src="images/ruth logo.png" alt="Rúthéa Studio Logo" class="logo-img">
+                <div class="business-name">Rúthéa Studio</div>
+            </a>
+            <div class="menu-toggle"><i class="fas fa-bars"></i></div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html" class="active-link">Product Page</a></li>
+                <li>
+                    <a href="cart.html">
+                        <i class="fas fa-shopping-cart"></i> Cart
+                        <span class="cart-count">0</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="products" class="products-section">
+            <h2>Our Boutique Collection</h2>
+            
+            <div class="filter-container">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="dresses">Dresses</button>
+                <button class="filter-btn" data-filter="tops">Tops</button>
+                <button class="filter-btn" data-filter="bottoms">Bottoms</button>
+                <button class="filter-btn" data-filter="accessories">Accessories</button>
+            </div>
+
+            <div class="product-grid" id="productGrid">
+                <!-- 1. Dresses -->
+                <div class="product-card" data-category="dresses">
+                    <img src="images/elegant silk gown.jpg" alt="Elegant Silk Gown" class="product-img" onclick="addToCart('p1', 'Elegant Silk Gown', 6800, 'images/elegant silk gown.jpg')" style="cursor: pointer;">
+                    <h3>Elegant Silk Gown</h3>
+                    <p class="price">₱6,800.00</p>
+                    <button onclick="addToCart('p1', 'Elegant Silk Gown', 6800, 'images/elegant silk gown.jpg')" class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product-card" data-category="dresses">
+                    <img src="images/floral summer dress.jpg" alt="Floral Summer Dress" class="product-img" onclick="addToCart('p2', 'Floral Summer Dress', 4800, 'images/floral summer dress.jpg')" style="cursor: pointer;">
+                    <h3>Floral Summer Dress</h3>
+                    <p class="price">₱4,800.00</p>
+                    <button onclick="addToCart('p2', 'Floral Summer Dress', 4800, 'images/floral summer dress.jpg')" class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product-card" data-category="dresses">
+                    <img src="images/velvet evening dress.webp" alt="Velvet Evening Dress" class="product-img" onclick="addToCart('p3', 'Velvet Evening Dress', 7500, 'images/velvet evening dress.webp')" style="cursor: pointer;">
+                    <h3>Velvet Evening Dress</h3>
+                    <p class="price">₱7,500.00</p>
+                    <button onclick="addToCart('p3', 'Velvet Evening Dress', 7500, 'images/velvet evening dress.webp')" class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product-card" data-category="dresses">
+                    <img src="images/bohemaan max dress.webp" alt="Bohemian Maxi Dress" class="product-img" onclick="addToCart('p4', 'Bohemian Maxi Dress', 3200, 'images/bohemaan max dress.webp')" style="cursor: pointer;">
+                    <h3>Bohemian Maxi Dress</h3>
+                    <p class="price">₱3,200.00</p>
+                    <button onclick="addToCart('p4', 'Bohemian Maxi Dress', 3200, 'images/bohemaan max dress.webp')" class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product-card" data-category="dresses">
+                    <img src="images/little black dress.png" alt="Little Black Dress" class="product-img" onclick="addToCart('p5', 'Little Black Dress', 2900, 'images/little black dress.png')" style="cursor: pointer;">
+                    <h3>Little Black Dress</h3>
+                    <p class="price">₱2,900.00</p>
+                    <button onclick="addToCart('p5', 'Little Black Dress', 2900, 'images/little black dress.png')" class="add-to-cart">Add to Cart</button>
+                </div>
+
+                <!-- 2. Tops -->
+                <div class="product-card" data-category="tops">
+                    <img src="images/classic silk blouse.webp" alt="Silk Blouse" class="product-img" onclick="addToCart('p6', 'Classic Silk Blouse', 2400, 'images/classic silk blouse.webp')" style="cursor: pointer;">
+                    <h3>Classic Silk Blouse</h3>
+                    <p class="price">₱2,400.00</p>
+                    <button onclick="addToCart('p6', 'Classic Silk Blouse', 2400, 'images/classic silk blouse.webp')" class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product-card" data-category="tops">
+                    <img src="images/premium cotton tee.webp" alt="Cotton T-Shirt" class="product-img" onclick="addToCart('p7', 'Premium Cotton Tee', 1200, 'images/premium cotton tee.webp')" style="cursor: pointer;">
+                    <h3>Premium Cotton Tee</h3>
+                    <p class="price">₱1,200.00</p>
+                    <button onclick="addToCart('p7', 'Premium Cotton Tee', 1200, 'images/premium cotton tee.webp')" class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product-card" data-category="tops">
+                    <img src="images/relaxed linen shirt.avif" alt="Linen Shirt" class="product-img" onclick="addToCart('p8', 'Relaxed Linen Shirt', 1850, 'images/relaxed linen shirt.avif')" style="cursor: pointer;">
+                    <h3>Relaxed Linen Shirt</h3>
+                    <p class="price">₱1,850.00</p>
+                    <button onclick="addToCart('p8', 'Relaxed Linen Shirt', 1850, 'images/relaxed linen shirt.avif')" class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product-card" data-category="tops">
+                    <img src="images/soft knit sweater.jpg" alt="Knit Sweater" class="product-img" onclick="addToCart('p9', 'Soft Knit Sweater', 3100, 'images/soft knit sweater.jpg')" style="cursor: pointer;">
+                    <h3>Soft Knit Sweater</h3>
+                    <p class="price">₱3,100.00</p>
+                    <button onclick="addToCart('p9', 'Soft Knit Sweater', 3100, 'images/soft knit sweater.jpg')" class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product-card" data-category="tops">
+                    <img src="images/chic graphic top.webp" alt="Graphic Top" class="product-img" onclick="addToCart('p10', 'Chic Graphic Top', 1450, 'images/chic graphic top.webp')" style="cursor: pointer;">
+                    <h3>Chic Graphic Top</h3>
+                    <p class="price">₱1,450.00</p>
+                    <button onclick="addToCart('p10', 'Chic Graphic Top', 1450, 'images/chic graphic top.webp')" class="add-to-cart">Add to Cart</button>
+                </div>
+
+                <!-- 3. Bottoms -->
+                <div class="product-card" data-category="bottoms">
+                    <img src="images/high waist jean.webp" alt="High-Waist Jeans" class="product-img" onclick="addToCart('p11', 'High-Waist Jeans', 2800, 'images/high waist jean.webp')" style="cursor: pointer;">
+                    <h3>High-Waist Jeans</h3>
+                    <p class="price">₱2,800.00</p>
+                    <button onclick="addToCart('p11', 'High-Waist Jeans', 2800, 'images/high waist jean.webp')" class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product-card" data-category="bottoms">
+                    <img src="images/tailored trousers.webp" alt="Tailored Trousers" class="product-img" onclick="addToCart('p12', 'Tailored Trousers', 3500, 'images/tailored trousers.webp')" style="cursor: pointer;">
+                    <h3>Tailored Trousers</h3>
+                    <p class="price">₱3,500.00</p>
+                    <button onclick="addToCart('p12', 'Tailored Trousers', 3500, 'images/tailored trousers.webp')" class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product-card" data-category="bottoms">
+                    <img src="images/pleated mini skirt.webp" alt="Midi Skirt" class="product-img" onclick="addToCart('p13', 'Pleated Mini Skirt', 2200, 'images/pleated mini skirt.webp')" style="cursor: pointer;">
+                    <h3>Pleated Mini Skirt</h3>
+                    <p class="price">₱2,200.00</p>
+                    <button onclick="addToCart('p13', 'Pleated Mini Skirt', 2200, 'images/pleated mini skirt.webp')" class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product-card" data-category="bottoms">
+                    <img src="images/classic demin shorts.webp" alt="Denim Shorts" class="product-img" onclick="addToCart('p14', 'Classic Denim Shorts', 1500, 'images/classic demin shorts.webp')" style="cursor: pointer;">
+                    <h3>Classic Denim Shorts</h3>
+                    <p class="price">₱1,500.00</p>
+                    <button onclick="addToCart('p14', 'Classic Denim Shorts', 1500, 'images/classic demin shorts.webp')" class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product-card" data-category="bottoms">
+                    <img src="images/active fit leggings.webp" alt="Leggings" class="product-img" onclick="addToCart('p15', 'Active Fit Leggings', 1250, 'images/active fit leggings.webp')" style="cursor: pointer;">
+                    <h3>Active Fit Leggings</h3>
+                    <p class="price">₱1,250.00</p>
+                    <button onclick="addToCart('p15', 'Active Fit Leggings', 1250, 'images/active fit leggings.webp')" class="add-to-cart">Add to Cart</button>
+                </div>
+
+                <!-- 4. Accessories -->
+                <div class="product-card" data-category="accessories">
+                    <img src="images/classic pearl necklace.webp" alt="Pearl Necklace" class="product-img" onclick="addToCart('p16', 'Classic Pearl Necklace', 2500, 'images/classic pearl necklace.webp')" style="cursor: pointer;">
+                    <h3>Classic Pearl Necklace</h3>
+                    <p class="price">₱2,500.00</p>
+                    <button onclick="addToCart('p16', 'Classic Pearl Necklace', 2500, 'images/classic pearl necklace.webp')" class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product-card" data-category="accessories">
+                    <img src="images/leather handbag.webp" alt="Leather Handbag" class="product-img" onclick="addToCart('p17', 'Leather Handbag', 5800, 'images/leather handbag.webp')" style="cursor: pointer;">
+                    <h3>Leather Handbag</h3>
+                    <p class="price">₱5,800.00</p>
+                    <button onclick="addToCart('p17', 'Leather Handbag', 5800, 'images/leather handbag.webp')" class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product-card" data-category="accessories">
+                    <img src="images/floral silk scarf.webp" alt="Silk Scarf" class="product-img" onclick="addToCart('p18', 'Floral Silk Scarf', 1200, 'images/floral silk scarf.webp')" style="cursor: pointer;">
+                    <h3>Floral Silk Scarf</h3>
+                    <p class="price">₱1,200.00</p>
+                    <button onclick="addToCart('p18', 'Floral Silk Scarf', 1200, 'images/floral silk scarf.webp')" class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product-card" data-category="accessories">
+                    <img src="images/vintage sunglasses.jpg" alt="Sunglasses" class="product-img" onclick="addToCart('p19', 'Vintage Sunglasses', 1800, 'images/vintage sunglasses.jpg')" style="cursor: pointer;">
+                    <h3>Vintage Sunglasses</h3>
+                    <p class="price">₱1,800.00</p>
+                    <button onclick="addToCart('p19', 'Vintage Sunglasses', 1800, 'images/vintage sunglasses.jpg')" class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product-card" data-category="accessories">
+                    <img src="images/gold hoop earings.webp" alt="Gold Earrings" class="product-img" onclick="addToCart('p20', 'Gold Hoop Earrings', 3200, 'images/gold hoop earings.webp')" style="cursor: pointer;">
+                    <h3>Gold Hoop Earrings</h3>
+                    <p class="price">₱3,200.00</p>
+                    <button onclick="addToCart('p20', 'Gold Hoop Earrings', 3200, 'images/gold hoop earings.webp')" class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-info">
+                <h3>Contact Us</h3>
+                <p><i class="fas fa-envelope"></i> <a href="mailto:ruthlapuz24@gmail.com">ruthlapuz24@gmail.com</a></p>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Rúthéa Studio. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="cart.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const productCards = document.querySelectorAll('.product-card');
+
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+
+                    const filter = btn.getAttribute('data-filter');
+
+                    productCards.forEach(card => {
+                        if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                            card.style.display = 'block';
+                            card.style.opacity = '0';
+                            setTimeout(() => {
+                                card.style.opacity = '1';
+                            }, 50);
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
