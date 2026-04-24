@@ -24,17 +24,19 @@
                 <img src="images/ruth logo.png" alt="Rúthéa Studio Logo" class="logo-img">
                 <div class="business-name">Rúthéa Studio</div>
             </a>
-            <div class="menu-toggle"><i class="fas fa-bars"></i></div>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="products.html" class="active-link">Product Page</a></li>
-                <li>
-                    <a href="cart.html">
-                        <i class="fas fa-shopping-cart"></i> Cart
-                        <span class="cart-count">0</span>
-                    </a>
-                </li>
             </ul>
+            <div class="navbar-actions">
+                <a href="cart.html" class="nav-cart-link">
+                    <i class="fas fa-shopping-cart"></i> Cart
+                    <span class="cart-count">0</span>
+                </a>
+                <button type="button" class="menu-toggle" aria-label="Open menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
         </nav>
     </header>
 
@@ -194,11 +196,53 @@
         </div>
     </footer>
 
+    <div id="productPreviewModal" class="product-preview-modal">
+        <div class="product-preview-backdrop" id="productPreviewBackdrop"></div>
+        <div class="product-preview-content" role="dialog" aria-modal="true" aria-label="Product preview">
+            <button type="button" class="product-preview-close" id="closeProductPreview" aria-label="Close preview">
+                <i class="fas fa-times"></i>
+            </button>
+            <img id="previewImage" src="" alt="" class="product-preview-image">
+            <div class="product-preview-details">
+                <h3 id="previewName"></h3>
+                <p id="previewPrice" class="price"></p>
+                <p id="previewCategory" class="preview-category"></p>
+                <p id="previewDescription" class="preview-description"></p>
+                <div class="preview-highlights">
+                    <p><i class="fas fa-check-circle"></i> Boutique quality and carefully curated style.</p>
+                    <p><i class="fas fa-truck"></i> Standard shipping available nationwide.</p>
+                    <p><i class="fas fa-shield-alt"></i> Safe checkout and secure order processing.</p>
+                </div>
+                <div class="product-preview-qty">
+                    <button type="button" id="decreasePreviewQty" class="qty-btn">-</button>
+                    <span id="previewQtyValue" class="qty-val">1</span>
+                    <button type="button" id="increasePreviewQty" class="qty-btn">+</button>
+                </div>
+                <p class="preview-note">Tip: Increase quantity here to add multiple pieces in one click.</p>
+                <button type="button" id="previewAddToCart" class="add-to-cart">Add to Cart</button>
+            </div>
+        </div>
+    </div>
+
     <script src="cart.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const filterBtns = document.querySelectorAll('.filter-btn');
             const productCards = document.querySelectorAll('.product-card');
+            const modal = document.getElementById('productPreviewModal');
+            const modalBackdrop = document.getElementById('productPreviewBackdrop');
+            const closePreviewBtn = document.getElementById('closeProductPreview');
+            const previewImage = document.getElementById('previewImage');
+            const previewName = document.getElementById('previewName');
+            const previewPrice = document.getElementById('previewPrice');
+            const previewCategory = document.getElementById('previewCategory');
+            const previewDescription = document.getElementById('previewDescription');
+            const previewQtyValue = document.getElementById('previewQtyValue');
+            const decreasePreviewQty = document.getElementById('decreasePreviewQty');
+            const increasePreviewQty = document.getElementById('increasePreviewQty');
+            const previewAddToCart = document.getElementById('previewAddToCart');
+            let selectedProduct = null;
+            let selectedQuantity = 1;
 
             filterBtns.forEach(btn => {
                 btn.addEventListener('click', () => {
@@ -219,6 +263,80 @@
                         }
                     });
                 });
+            });
+
+            function setPreviewQuantity(value) {
+                selectedQuantity = Math.max(1, value);
+                previewQtyValue.textContent = selectedQuantity;
+            }
+
+            function openProductPreview(product) {
+                selectedProduct = product;
+                previewImage.src = product.image;
+                previewImage.alt = product.name;
+                previewName.textContent = product.name;
+                previewPrice.textContent = `₱${product.price.toLocaleString()}.00`;
+                previewCategory.textContent = `Category: ${product.categoryLabel}`;
+                previewDescription.textContent = `${product.name} is part of our signature collection, selected for comfort, quality, and timeless style.`;
+                setPreviewQuantity(1);
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closeProductPreview() {
+                modal.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+
+            productCards.forEach(card => {
+                const imageEl = card.querySelector('.product-img');
+                const addButton = card.querySelector('.add-to-cart');
+                if (!imageEl || !addButton) return;
+
+                const addCall = addButton.getAttribute('onclick') || '';
+                const match = addCall.match(/addToCart\('([^']+)', '([^']+)', ([\d.]+), '([^']+)'\)/);
+                if (!match) return;
+
+                const [, id, name, price, image] = match;
+                const category = card.getAttribute('data-category') || 'all';
+                const categoryLabel = category.charAt(0).toUpperCase() + category.slice(1);
+                imageEl.onclick = () => {
+                    openProductPreview({
+                        id,
+                        name,
+                        price: Number(price),
+                        image,
+                        categoryLabel
+                    });
+                };
+            });
+
+            decreasePreviewQty.addEventListener('click', () => {
+                setPreviewQuantity(selectedQuantity - 1);
+            });
+
+            increasePreviewQty.addEventListener('click', () => {
+                setPreviewQuantity(selectedQuantity + 1);
+            });
+
+            previewAddToCart.addEventListener('click', () => {
+                if (!selectedProduct) return;
+                addToCart(
+                    selectedProduct.id,
+                    selectedProduct.name,
+                    selectedProduct.price,
+                    selectedProduct.image,
+                    selectedQuantity
+                );
+                closeProductPreview();
+            });
+
+            closePreviewBtn.addEventListener('click', closeProductPreview);
+            modalBackdrop.addEventListener('click', closeProductPreview);
+            document.addEventListener('keydown', (event) => {
+                if (event.key === 'Escape' && modal.classList.contains('active')) {
+                    closeProductPreview();
+                }
             });
         });
     </script>

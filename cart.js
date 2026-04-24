@@ -86,7 +86,7 @@ function showNotification(message, type = 'success') {
     }, 3000);
 }
 
-function addToCart(id, name, price, image) {
+function addToCart(id, name, price, image, quantity = 1) {
     if (!isLoggedIn()) {
         showNotification('Please log in first to add products to your cart.', 'warning');
         setTimeout(() => {
@@ -97,14 +97,14 @@ function addToCart(id, name, price, image) {
 
     const existingItem = cart.find(item => item.id === id);
     if (existingItem) {
-        existingItem.quantity += 1;
+        existingItem.quantity += quantity;
     } else {
         cart.push({
             id: id,
             name: name,
             price: price,
             image: image,
-            quantity: 1
+            quantity: quantity
         });
     }
     saveCart();
